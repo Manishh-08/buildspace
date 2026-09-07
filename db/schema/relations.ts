@@ -8,6 +8,7 @@ import {
   achievements,
   userAchievements,
 } from "./achievements";
+import { progress } from "./progress";
 
 export const relations = defineRelations(
   {
@@ -17,6 +18,7 @@ export const relations = defineRelations(
     enrollments,
     achievements,
     userAchievements,
+    progress
   },
   (r) => ({
     // Users
@@ -67,6 +69,19 @@ export const relations = defineRelations(
       achievement: r.one.achievements({
         from: r.userAchievements.achievementId,
         to: r.achievements.id,
+      }),
+    },
+
+    //Progress
+    progress: {
+      user: r.one.users({
+        from: r.progress.userId,
+        to: r.users.id,
+      }),
+    
+      lesson: r.one.lessons({
+        from: r.progress.lessonId,
+        to: r.lessons.id,
       }),
     },
   }),
