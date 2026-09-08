@@ -46,7 +46,7 @@ export async function GET() {
         return NextResponse.json(formattedCourses);
 
     } catch (error) {
-        console.log("COURSES_GET",error);
+        console.log("[COURSES_GET]",error);
         return NextResponse.json([]);
     }
 }
