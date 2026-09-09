@@ -1,6 +1,6 @@
 import { db } from "@/db/drizzle";
 import { enrollments, progress, userAchievements, users } from "@/db/schema";
-import { auth, currentUser } from "@clerk/nextjs/server";
+import { auth } from "@clerk/nextjs/server";
 import { and, count, eq, sql } from "drizzle-orm";
 import { NextResponse } from "next/server";
 
