@@ -11,6 +11,11 @@ import {
 import { sql } from "drizzle-orm";
 import { users } from "./users";
 
+export type AchievementCriteria =
+  | { type: "lessons_completed"; count: number }
+  | { type: "courses_completed"; count: number }
+  | { type: "streak"; days: number };
+
 export const achievements = pgTable("achievements", {
   id: text("id")
     .primaryKey()
@@ -31,6 +36,7 @@ export const achievements = pgTable("achievements", {
     .default(50),
 
   criteria: jsonb("criteria")
+    .$type<AchievementCriteria>()
     .notNull(),
 });
 
