@@ -141,6 +141,6 @@ export const routes = [
         label: "Achievements",
         icon: Award,
         href:'/achievements',
-        color : "text-emrald-500"
+        color : "text-emerald-500"
     },
 ]

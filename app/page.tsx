@@ -29,6 +29,10 @@ export default function LandingPage() {
     )
   };
 
+  if (isSignedIn) {
+    return null;
+  }
+
   return (
     <div className="min-h-screen bg-linear-to-br from-purple-50 via-white to-indigo-50 overflow-hidden">
       {/* Animated Background */}
