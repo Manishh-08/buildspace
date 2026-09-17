@@ -12,7 +12,7 @@ export function DashboardHeader() {
     useEffect(() => {
         const saved = localStorage.getItem("userStats");
         if (saved) {
-            // setCachedStats(JSON.parse(saved));
+            setCachedStats(JSON.parse(saved));
         }
     }, [])
     const { data: stats } = useQuery({

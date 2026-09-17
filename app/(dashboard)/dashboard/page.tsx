@@ -25,7 +25,7 @@ export default function DashboardPage() {
     }
   })
 
-  const { data: stats, isLoading, refetch } = useQuery({
+  const { data: stats, refetch } = useQuery({
     queryKey: ["stats", user?.id],
     queryFn: async () => {
       const res = await fetch("/api/user/stats");
