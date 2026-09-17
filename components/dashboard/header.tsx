@@ -12,16 +12,16 @@ export function DashboardHeader() {
     useEffect(() => {
         const saved = localStorage.getItem("userStats");
         if (saved) {
-            setCachedStats(JSON.parse(saved));
+            // setCachedStats(JSON.parse(saved));
         }
-    },[])
+    }, [])
     const { data: stats } = useQuery({
         queryKey: ["stats", user?.id],
         queryFn: async () => {
             const res = await fetch("/api/user/stats");
-            if(!res.ok) throw new Error("failed to fetch stats");
+            if (!res.ok) throw new Error("failed to fetch stats");
             const data = await res.json();
-            localStorage.setItem("userStats",JSON.stringify(data));
+            localStorage.setItem("userStats", JSON.stringify(data));
             return data;
         },
         enabled: !!user,
@@ -31,7 +31,7 @@ export function DashboardHeader() {
     const displayName = user?.username || user?.firstName || user?.emailAddresses[0]?.emailAddress?.split("@")[0] || "Learner";
 
     const currentStreak = displayStats?.currentStreak || 0;
-    const totalXP = displayStats?.totalXP || 0; 
+    const totalXP = displayStats?.totalXP || 0;
     const level = displayStats?.level ?? 1;
 
     return (
