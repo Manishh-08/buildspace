@@ -21,10 +21,6 @@ https://buildspace-wine.vercel.app/
 - Check your position on the leaderboard
 - View your learning statistics and profile
 
-## Screenshots
-
-<img width="1241" height="675" alt="Screenshot 2026-09-20 at 2 43 36 AM" src="https://github.com/user-attachments/assets/7d820a24-9187-43cb-afd1-c09d5eeaa223" />
-
 
 ## Tech Stack
 
