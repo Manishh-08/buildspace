@@ -1,7 +1,9 @@
 import { google, youtube_v3 } from "googleapis";
 import * as dotenv from "dotenv";
 import { db } from "@/db/drizzle";
-import { courses, lessons } from "@/db/schema";
+import { achievements, courses, lessons } from "@/db/schema";
+import { achievementsData } from "@/app/data";
+import { error } from "console";
 
 dotenv.config({ path: ".env" });
 
@@ -116,6 +118,21 @@ async function fetchPlaylistVideos(
   return videos;
 }
 
+async function seedAchievements() {
+  console.log("seeding achievements...");
+  for(const achievement of achievementsData){
+    const existing = await db.query.achievements.findFirst({
+      where : {
+        name: achievement.name
+      }
+    });
+    if(!existing) {
+      await db.insert(achievements).values(achievement);
+    } else {
+      console.log(`Achievement already exists: ${achievement.name}`);
+    }
+  }
+}
 async function seedCoursesFromPlaylists() {
   console.log("🚀 Starting YouTube content import...\n");
 
@@ -220,3 +237,10 @@ seedCoursesFromPlaylists()
     console.error("❌ Import failed:", error);
     process.exit(1);
   });
+
+seedAchievements()
+.then(() => {
+  console.log("✅Seeding achievement finished");
+}).catch((error) => {
+  console.error("❌ Seeding achievement failed:", error);
+})

@@ -8,6 +8,14 @@ import {
     Code,
     Home,
 } from "lucide-react";
+import type { AchievementCriteria } from "@/db/schema";
+type AchievementData = {
+    name: string;
+    description: string;
+    icon: string;
+    points: number;
+    criteria: AchievementCriteria;
+  };
 
 export const stats = [
     {
@@ -142,5 +150,36 @@ export const routes = [
         icon: Award,
         href:'/achievements',
         color : "text-emerald-500"
+    },
+];
+
+export const achievementsData : AchievementData[] = [
+    {
+        name: "First Steps",
+        description: "Complete your first lesson",
+        icon: "🚀",
+        points: 50,
+        criteria: {type: "lessons_completed", count: 1},
+    },
+    {
+        name: "Quick Learner",
+        description: "Complete 5 lessons",
+        icon: "📚",
+        points: 100,
+        criteria: {type: "lessons_completed", count: 5},
+    },
+    {
+        name: "Course Master",
+        description: "Complete your first course",
+        icon: "🎓",
+        points: 200,
+        criteria: {type: "courses_completed", count: 1},
+    },
+    {
+        name: "Streak Starter",
+        description: "Maintain a 7-day streak",
+        icon: "🔥",
+        points: 150,
+        criteria: {type: "streak", days: 7},
     },
 ]
