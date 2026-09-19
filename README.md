@@ -1,6 +1,6 @@
-# LearnHub
+# BuildSpace
 
-LearnHub is a full-stack learning platform I built to make online learning a little more engaging.
+BuildSpace is a full-stack learning platform I built to make online learning a little more engaging.
 
 The idea was to go beyond just watching lessons. Users can enroll in courses, keep track of their progress, earn XP, maintain learning streaks, unlock achievements, and see how they compare on the leaderboard.
 
