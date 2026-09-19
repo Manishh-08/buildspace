@@ -51,7 +51,7 @@ export async function GET() {
         }
 
         return NextResponse.json({
-            entries: entriesWithRank.slice(0,100),
+            entries: entriesWithRank.slice(0, 100),
             userRank: userRank || null,
             userPoints,
             userLevel,
