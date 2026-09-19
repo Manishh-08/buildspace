@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { SignInButton, SignUpButton, useUser } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 export default function LandingPage() {
   const {isSignedIn, isLoaded} = useUser();
@@ -17,7 +17,7 @@ export default function LandingPage() {
     }
   },[isLoaded,isSignedIn,router]);
 
-  if(isLoaded){
+  if(!isLoaded){
     return (
       <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-purple-100 via-indigo-100 to-blue-100">
         <motion.div

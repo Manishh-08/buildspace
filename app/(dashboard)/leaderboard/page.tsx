@@ -23,7 +23,7 @@ export default function LeaderboardPage() {
   const { user } = useUser();
 
   const { data: leaderboard, isLoading } = useQuery({
-    queryKey: [""],
+    queryKey: ["leaderboard"],
     queryFn: async () => {
       const res = await fetch("/api/leaderboard");
       if (!res.ok) throw new Error("Failed to fetch leaderboard");
@@ -88,9 +88,8 @@ export default function LeaderboardPage() {
 
       {/* Top 3 Podium */}
       {topThree.length > 0 && (
-        <>
           <div className="grid gap-4 md:grid-cols-3">
-            {topThree.map((entry: LeaderboardEntry, index: number) => {
+            {topThree.map((entry: LeaderboardEntry, index: number) => (
               <Card
                 key={entry.id}
                 className={`text-center ${index === 0
@@ -124,9 +123,8 @@ export default function LeaderboardPage() {
                   </div>
                 </CardContent>
               </Card>
-            })}
+            ))}
           </div>
-        </>
       )}
 
       {/* Rest of leaderboard */}

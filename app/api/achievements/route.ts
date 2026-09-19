@@ -41,7 +41,7 @@ export async function GET() {
 
     return NextResponse.json(achievementsWithStatus);
   } catch (error) {
-    console.log("[ACHIEVEMENTS_GET", error);
+    console.log("[ACHIEVEMENTS_GET]", error);
     return new NextResponse("Internal Error", { status: 500 });
   }
 }
