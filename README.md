@@ -1,3 +1,4 @@
+<img width="1241" height="675" alt="Screenshot 2026-09-20 at 2 43 36 AM" src="https://github.com/user-attachments/assets/fd4ba059-c873-4ee9-9d94-c17f0eace636" />
 # BuildSpace
 
 BuildSpace is a full-stack learning platform I built to make online learning a little more engaging.
@@ -22,6 +23,7 @@ https://buildspace-wine.vercel.app/
 
 ## Screenshots
 
+<img width="1241" height="675" alt="Screenshot 2026-09-20 at 2 43 36 AM" src="https://github.com/user-attachments/assets/7d820a24-9187-43cb-afd1-c09d5eeaa223" />
 
 
 ## Tech Stack
