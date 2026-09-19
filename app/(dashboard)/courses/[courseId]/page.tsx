@@ -147,9 +147,9 @@ export default function CourseDetailPage() {
                     className={cn(
                       "flex items-center justify-between p-4 rounded-lg border transition-all cursor-pointer",
                       lesson.completed &&
-                        "bg-green-50 dark:bg-green-900/20 border-green-200",
+                      "bg-green-50 dark:bg-green-900/20 border-green-200",
                       selectedLesson?.id === lesson.id &&
-                        "ring-2 ring-purple-500",
+                      "ring-2 ring-purple-500",
                     )}
                     onClick={() => setSelectedLesson(lesson)}
                   >

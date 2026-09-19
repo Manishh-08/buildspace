@@ -1,5 +1,5 @@
 import { db } from "@/db/drizzle";
-import { enrollments, progress, userAchievements, users } from "@/db/schema";
+import { enrollments, progress, userAchievements, users, courses } from "@/db/schema";
 import { auth } from "@clerk/nextjs/server";
 import { and, count, eq, sql } from "drizzle-orm";
 import { NextResponse } from "next/server";
@@ -96,7 +96,7 @@ export async function POST(req: Request) {
 
                 await db.update(users)
                     .set({
-                        points: sql`${currentUser.points} + ${pointsPerLesson}`
+                        points: sql`${users.points} + ${pointsPerLesson}`
                     })
                     .where(eq(users.id, currentUser.id));
 
@@ -108,9 +108,8 @@ export async function POST(req: Request) {
 
             //Check achievement
             await checkAndAwardAchievements(currentUser.id);
-
-            return NextResponse.json({ success: true });
         }
+        return NextResponse.json({ success: true });
 
     } catch (error) {
         console.log("[PROGRESS_POST]", error);
@@ -274,8 +273,4 @@ async function checkAndAwardAchievements(userId: string) {
         );
 
     }
-
-
-
-
 }
